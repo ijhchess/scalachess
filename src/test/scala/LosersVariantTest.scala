@@ -96,6 +96,10 @@ class LosersVariantTest extends ChessTest {
       drawnGame must beSuccess.like {
         case game =>
           game.situation.end must beTrue
+          game.situation.status must beSome.like {
+            case state => state == Status.VariantEnd
+
+          }
           game.situation.winner must beSome.like {
             case color =>
               color == Black;
