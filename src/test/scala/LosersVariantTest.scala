@@ -39,7 +39,7 @@ class LosersVariantTest extends ChessTest {
       afterFirstMove must beSuccess.like {
         case newGame =>
           val fen = Forsyth >> newGame
-          fen mustEqual "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b - - 0 1"
+          fen mustEqual "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b [-] - 0"
       }
     }
 
@@ -88,10 +88,10 @@ class LosersVariantTest extends ChessTest {
 
 
     "Win on a traditional stalemate where the player has no valid moves" in {
-      val positionString = "1k6/p6R/7Q/8/8/8/8/4K2B w - - 0 1"
+      val positionString = "1k6/p7/6Q1/8/8/8/8/2R4B w - - 0 1"
       val maybeGame      = fenToGame(positionString, Losers)
 
-      val drawnGame = maybeGame flatMap (_.playMoves((Pos.H6, Pos.A6)))
+      val drawnGame = maybeGame flatMap (_.playMoves((Pos.G6, Pos.A6)))
 
       drawnGame must beSuccess.like {
         case game =>
