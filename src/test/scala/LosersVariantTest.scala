@@ -26,8 +26,10 @@ class LosersVariantTest extends ChessTest {
 [BlackClock "0:03:00.000"]
 [Result "0-1"]
 [LongResult "Black wins by losing all material"]
+
 1. c4 f5 2. c5 f4 3. e3 fxe3 4. dxe3 h6 5. Qxd7+ Kxd7 6. c6+ bxc6 7. Bb5 cxb5 8. Nf3 h5 9. Ne5+ Ke8 10. Nc6 Nxc6 11. O-O Qd1 12. Rxd1 Bd7 13. Rxd7 Kxd7 14. a4 bxa4 15. Rxa4 g6 16. Rxa7 Rxa7 17. Na3 Rxa3 18. bxa3 Kd6 19. g4 hxg4 20. Kf1 Rxh2 21. f3 gxf3 22. Bb2 Rxb2 23. e4 e5 24. a4 Na5 25. Ke1 Kc5 26. Kd1 Rh2 27. Kc1 Kd4 28. Kb1 Kxe4 29. Ka1 g5 30. Kb1 Ba3 31. Ka1 g4 32. Kb1 Bc1 33. Kxc1 c5 34. Kb1 c4 35. Ka1 Kf5 36. Kb1 e4 37. Ka1 Ke5 38. Kb1 e3 39. Ka1 g3 40. Kb1 Rd2 41. Ka1 Nf6 42. Kb1 Ne4 43. Ka1 Nf2 44. Kb1 Nd3 45. Ka1 e2 46. Kb1 Nc1 47. Kxc1 Rd3 48. Kb1 Ke4 49. Ka1 Ke3 50. Kb2 f2 51. Ka1 g2 52. Ka2 e1=R 53. Kb2 Ra1 54. Kxa1 f1=R+ 55. Ka2 Ra1+ 56. Kxa1 c3 57. Ka2 c2 58. Ka1 c1=R+ 59. Ka2 Ra1+ 60. Kxa1 g1=R+ 61. Ka2 Ra1+ 62. Kxa1 Rd1+ 63. Ka2 Ra1+ 64. Kxa1 Nb3+ 65. Kb1 Na1 66. Kxa1  {Black wins by losing all material} 0-1
 """
+  "Losers " should {
 
     "Not allow a player to make a non capturing move if a capturing move is available" in {
       val game             = Game(Losers)
