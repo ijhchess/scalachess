@@ -238,6 +238,20 @@ class AtomicVariantTest extends ChessTest {
       }
     }
 
+    "Be drawn when there are locked pawns on the opposite color square of the remaining bishop" in {
+      val position     = "8/1k4p1/4B1P1/1p2p3/4P3/1P6/8/5K2 b - - 1 28"
+      val game = fenToGame(position, Atomic)
+      val successGame = game flatMap (_.playMoves((Pos.B5, Pos.B4)))
+
+      successGame must beSuccess.like {
+        case game =>
+          game.situation.end must beTrue
+          game.situation.status must beSome.like {
+            case status => status == Status.Draw
+          }
+      }
+    }
+
     "It should not be possible to capture a piece resulting in your own king exploding" in {
       val position    = "rnbqkbnr/pppNp1pp/5p2/3p4/8/8/PPPPPPPP/RNBQKB1R b KQkq - 1 3"
       val game        = fenToGame(position, Atomic)
